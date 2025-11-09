@@ -4,6 +4,7 @@ var createError = require('http-errors');
 var logger = require('morgan');
 var configDb = require('./Config/db.js');
 var userRouter = require('./App/Routers/user.js');
+var courseRotuer = require('./App/Routers/course.js')
 
 
 var app = Express();
@@ -19,6 +20,7 @@ app.use(function(req, res, next) {
 
 
 app.use('/users', userRouter);
+app.use('/courses', courseRotuer);
 
 // error handler
 app.use(function(err, req, res, next) {
