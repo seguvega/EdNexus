@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let crypto = require('crypto');
-const { type } = require('os');
 
 const UserSchema = new Schema(
     {
