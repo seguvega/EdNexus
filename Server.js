@@ -3,6 +3,7 @@ var cors = require('cors');
 var createError = require('http-errors');
 var logger = require('morgan');
 var configDb = require('./Config/db.js');
+var userRouter = require('./App/Routers/user.js');
 
 
 var app = Express();
@@ -15,6 +16,9 @@ app.use(Express.urlencoded({ extended: false }));
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
+app.use('/users', userRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
