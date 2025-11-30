@@ -1,7 +1,7 @@
 var Router = require("express").Router();
 
 var CourseController = require('../Controllers/course');
-var authController = require('../Controllers/auth');
+var authController = require('../Controllers/firebaseAuth');
 
 Router.get('/', CourseController.list);
 Router.post('/', authController.requireSignin, CourseController.create);

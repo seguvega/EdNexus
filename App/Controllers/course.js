@@ -8,7 +8,7 @@ module.exports.create = async function (req, res, next) {
         
         let newItem = req.body;
         newItem.tags = req.body.tags.split(",").map(word => word.trim());
-        newItem.owner = req.auth.id;
+        newItem.owner = req.auth.uid;
 
         let result = await CourseModel.create(newItem);
 

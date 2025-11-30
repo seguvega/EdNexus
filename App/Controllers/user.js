@@ -39,6 +39,10 @@ module.exports.LisByID = async function (req, res, next) {
     }
 }
 
+module.exports.read = async function (req, res, next) {
+    res.json(req.user);
+}
+
 module.exports.SetUserByID = async function (req, res, next) {
     try {
         req.user = await UserModel.findOne({ _id: req.params.id }, '-hashed_password -salt');

@@ -1,14 +1,15 @@
 var Router = require('express').Router();
 var UserController = require('../Controllers/user');
-var UserAuth = require('../Controllers/auth');
+var UserAuth = require('../Controllers/firebaseAuth');
 
 Router.get('/', UserController.list);
 Router.post('/', UserController.create);
 Router.param('id', UserController.SetUserByID);
+
 Router.get('/:id',
     UserAuth.requireSignin,  
     UserController.hasAuthorization,
-    UserController.LisByID);
+    UserController.read);
 Router.put('/:id', 
     UserAuth.requireSignin,
     UserController.hasAuthorization, 
@@ -18,6 +19,8 @@ Router.delete('/:id',
     UserController.hasAuthorization, 
     UserController.delete);
 Router.put('/setadmin/:userID',  
+    UserController.setAdmin,
+    UserAuth.requireSignin,
     UserController.setAdmin);
 
 module.exports = Router;

@@ -13,8 +13,7 @@ const CourseSchema = new Schema(
             type: String
         },
         owner: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            type: String
         }
     },
     {
