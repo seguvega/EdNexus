@@ -1,4 +1,5 @@
 var CourseModel = require("../Models/course");
+var UserModel = require("../Models/user");
 
 module.exports.create = async function (req, res, next) {
 
